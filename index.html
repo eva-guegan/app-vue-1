@@ -7,11 +7,16 @@
         <title>Liste events Nantes</title>
     </head>
     <body>
-        <div id="main">
-            <h3 class="display-3">Liste des évènements de Nantes</h3>
+        <div>
+            <h3 class="display-3">Liste des événements de Nantes</h3>
 
-            <table class="table table-hover">
-                <thead>
+            <form id="main" v-cloak>
+                <div>
+                    <input type="text" placeholder="Entrer votre recherche" v-model="searchEvent"/>
+                </div>
+
+                <table class="table table-hover">
+                    <thead>
                     <tr>
                         <th scope="col">Nom de l'événement</th>
                         <th scope="col">type</th>
@@ -19,17 +24,18 @@
                         <th scope="col">Heure début</th>
                         <th scope="col">Adresse</th>
                     </tr>
-                </thead>
-                <tbody>
-                    <tr v-for="event in events">
+                    </thead>
+                    <tbody>
+                    <tr v-for="event in eventSearch">
                         <td>{{ event.fields.nom }}</td>
                         <td>{{ event.fields.type }}</td>
                         <td>{{ event.fields.date }}</td>
                         <td>{{ event.fields.heure_debut }}</td>
                         <td>{{ event.fields.adresse }} {{ event.fields.code_postal }} {{ event.fields.ville }}</td>
                     </tr>
-                </tbody>
-            </table>
+                    </tbody>
+                </table>
+            </form>
         </div>
 
         <script src="https://cdnjs.cloudflare.com/ajax/libs/vue/2.0.5/vue.min.js"></script>
