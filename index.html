@@ -3,18 +3,38 @@
     <head>
         <meta charset="UTF-8">
         <link rel="stylesheet" type="text/css" href="app.css" />
+        <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-giJF6kkoqNQ00vy+HMDP7azOuL0xtbfIcaT9wjKHr8RbDVddVHyTfAAsrekwKmP1" crossorigin="anonymous">
         <title>Liste events Nantes</title>
     </head>
     <body>
         <div id="main">
-            <h1>Liste des évènements de Nantes</h1>
+            <h3 class="display-3">Liste des évènements de Nantes</h3>
 
-<!--            <p v-for="event in events">{{ event.datasetid }}</p>-->
-            <p v-for="event in events">{{ event.fields }}</p>
+            <table class="table table-hover">
+                <thead>
+                    <tr>
+                        <th scope="col">Nom de l'événement</th>
+                        <th scope="col">type</th>
+                        <th scope="col">Date</th>
+                        <th scope="col">Heure début</th>
+                        <th scope="col">Adresse</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr v-for="event in events">
+                        <td>{{ event.fields.nom }}</td>
+                        <td>{{ event.fields.type }}</td>
+                        <td>{{ event.fields.date }}</td>
+                        <td>{{ event.fields.heure_debut }}</td>
+                        <td>{{ event.fields.adresse }} {{ event.fields.code_postal }} {{ event.fields.ville }}</td>
+                    </tr>
+                </tbody>
+            </table>
         </div>
 
         <script src="https://cdnjs.cloudflare.com/ajax/libs/vue/2.0.5/vue.min.js"></script>
         <script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
+        <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta1/dist/js/bootstrap.bundle.min.js" integrity="sha384-ygbV9kiqUc6oa4msXn9868pTtWMgiQaeYH7/t7LECLbyPA2x65Kgf80OJFdroafW" crossorigin="anonymous"></script>
         <script src="app.js"></script>
     </body>
 </html>
