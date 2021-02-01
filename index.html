@@ -9,11 +9,10 @@
     <body>
         <div>
             <h3 class="display-3">Liste des événements de Nantes</h3>
+            <br/>
 
             <form id="main" v-cloak>
-                <div>
-                    <input type="text" placeholder="Entrer votre recherche" v-model="searchEvent"/>
-                </div>
+                    <input class="form-control" type="text" placeholder="Entrer votre recherche" v-model="searchEvent"/>
 
                 <table class="table table-hover">
                     <thead>
